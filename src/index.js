@@ -1,9 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import {BrowserRouter as Router } from "react-router-dom";
+import {HashRouter as Router } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
+import { ApolloProvider } from "react-apollo";
+
+import App from './App';
+//utils
+import client from "./utils/apolloClient";
+
+// core styles
+import "./scss/volt.scss";
+
+// vendor styles
+import "@fortawesome/fontawesome-free/css/all.css";
+import "react-datetime/css/react-datetime.css";
 
 ReactDOM.render(
   <React.StrictMode>

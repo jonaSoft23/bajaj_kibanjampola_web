@@ -1,20 +1,9 @@
-import './App.css';
-import {Switch , Route } from 'react-router-dom'
-import Routes from "Routing/Routes"
+import Home from "Pages/HomePage"
 
 function App() {
   return (
     <div className="App">
-      <Switch>
-      { Routes.map(route => (
-          <Route 
-            key = {route.path}
-            path ={route.path}
-            component ={route.component}
-          />
-        ))}
-      </Switch>
-      
+      <Home />
     </div>
   );
 }

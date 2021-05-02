@@ -1,17 +1,16 @@
-import Page2 from "../Pages/Page2"
-import Home from "../Pages/Home"
+export const Routes ={
+    // Home :{ path:"/" },
+    DashboardOverview:{path:"/"},
 
-const Routes =[
+    //Authorization Pages
+    Signin: { path: "/sign-in" },
+    Signup: { path: "/sign-up" },
+    ForgotPassword: { path: "/forgot-password" },
+    ResetPassword: { path: "/reset-password" },
+    Lock: { path: "/lock" },
 
-    {
-        path : "/Page2",
-        component: Page2
-    },
-
-    {
-        path : "/",
-        component: Home
-    },
-];
-
-export default Routes;
+    //Error Pages
+    NotFound: { path: "/Pages/Authorization/NotFound" },
+    ServerError: { path: "/Pages/Authorization/ServerError" },
+    
+};
