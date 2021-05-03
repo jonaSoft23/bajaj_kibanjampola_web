@@ -100,9 +100,9 @@ export default (props = {}) => {
               <NavItem title="Volt React" link={Routes.DashboardOverview.path} image={ReactHero} />
 
               <NavItem title="Overview" link={Routes.DashboardOverview.path} icon={faChartPie} />
-              <NavItem title="Transactions" icon={faHandHoldingUsd} link={Routes.DashboardOverview.path} />
-              <NavItem title="Riders" icon={faCog} link={Routes.DashboardOverview.path} />
-              <NavItem title="Settings" icon={faCog} link={Routes.DashboardOverview.path} />
+              <NavItem title="Riders" icon={faCog} link={Routes.Riders.path} />
+              {/* <NavItem title="Transactions" icon={faHandHoldingUsd} link={Routes.DashboardOverview.path} />
+              <NavItem title="Settings" icon={faCog} link={Routes.DashboardOverview.path} /> */}
 
               {/* <CollapsableNavItem eventKey="tables/" title="Tables" icon={faTable}>
                 <NavItem title="Bootstrap Table" link={Routes.BootstrapTables.path} />

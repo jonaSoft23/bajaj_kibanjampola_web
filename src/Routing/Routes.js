@@ -9,6 +9,8 @@ export const Routes ={
     ResetPassword: { path: "/reset-password" },
     Lock: { path: "/lock" },
 
+    //Pages
+    Riders: {path: "/riders"},
     //Error Pages
     NotFound: { path: "/Pages/Authorization/NotFound" },
     ServerError: { path: "/Pages/Authorization/ServerError" },

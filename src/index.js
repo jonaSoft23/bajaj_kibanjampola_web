@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {HashRouter as Router } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
-import { ApolloProvider } from "react-apollo";
+import { ApolloProvider } from "@apollo/react-hooks";
 
 import App from './App';
+
 //utils
-import client from "./utils/apolloClient";
+import client from "./Utils/ApolloClient";
 
 // core styles
 import "./scss/volt.scss";
@@ -18,7 +19,9 @@ import "react-datetime/css/react-datetime.css";
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <ApolloProvider client={client}>
+            <App />
+      </ApolloProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

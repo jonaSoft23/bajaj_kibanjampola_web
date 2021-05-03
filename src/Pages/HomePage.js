@@ -11,7 +11,7 @@ import ResetPassword from "Pages/Authorization/ResetPassword";
 import Lock from "Pages/Authorization/Lock";
 import NotFound from "Pages/Authorization/NotFound"
 import ServerError from "Pages/Authorization/ServerError";
-
+import Riders from "Pages/Riders";
 
 //components
 import Sidebar from "../Components/SideBar";
@@ -82,6 +82,7 @@ const HomePage = () => (
 
         {/* Pages */}
         <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
+        <RouteWithSidebar exact path={Routes.Riders.path} component={Riders} />
 
         <Redirect to={Routes.NotFound.path} />
     </Switch>
