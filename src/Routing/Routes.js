@@ -10,9 +10,13 @@ export const Routes ={
     Lock: { path: "/lock" },
 
     //Pages
-    Riders: {path: "/riders"},
+    ViewRiders: {path: "/riders/view-riders"},
+    AddRider: {path: "/riders/add-rider"},
+    Transactions: {path: "/transactions"},
+
     //Error Pages
     NotFound: { path: "/Pages/Authorization/NotFound" },
     ServerError: { path: "/Pages/Authorization/ServerError" },
+    Simple:{path:"/simple"}
     
 };

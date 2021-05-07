@@ -11,7 +11,10 @@ import ResetPassword from "Pages/Authorization/ResetPassword";
 import Lock from "Pages/Authorization/Lock";
 import NotFound from "Pages/Authorization/NotFound"
 import ServerError from "Pages/Authorization/ServerError";
-import Riders from "Pages/Riders";
+import ViewRiders from "Pages/Riders/ViewRiders";
+import AddRider from "Pages/Riders/AddRider";
+import Transactions from "Pages/Transactions";
+import Simple from "Pages/Simple";
 
 //components
 import Sidebar from "../Components/SideBar";
@@ -79,10 +82,13 @@ const HomePage = () => (
         <RouteWithLoader exact path={Routes.ResetPassword.path} component={ResetPassword} />
         <RouteWithLoader exact path={Routes.Lock.path} component={Lock} />
         <RouteWithLoader exact path={Routes.ServerError.path} component={ServerError} />
+        <RouteWithLoader exact path={Routes.Simple.path} component={Simple} />
 
         {/* Pages */}
         <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
-        <RouteWithSidebar exact path={Routes.Riders.path} component={Riders} />
+        <RouteWithSidebar exact path={Routes.ViewRiders.path} component={ViewRiders} />
+        <RouteWithSidebar exact path={Routes.AddRider.path} component={AddRider} />
+        <RouteWithSidebar exact path={Routes.Transactions.path} component={Transactions} />
 
         <Redirect to={Routes.NotFound.path} />
     </Switch>

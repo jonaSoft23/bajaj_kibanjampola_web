@@ -6,6 +6,8 @@ const ViewRiders_QUERY = gql`
       first_name
       last_name
       nin_number
+      amount_owed
+      amount_paid
     }
   }
 `;

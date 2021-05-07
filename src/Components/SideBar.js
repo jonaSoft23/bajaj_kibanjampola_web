@@ -98,9 +98,12 @@ export default (props = {}) => {
             </div>
             <Nav className="flex-column pt-3 pt-md-0">
               <NavItem title="Volt React" link={Routes.DashboardOverview.path} image={ReactHero} />
-
               <NavItem title="Overview" link={Routes.DashboardOverview.path} icon={faChartPie} />
-              <NavItem title="Riders" icon={faCog} link={Routes.Riders.path} />
+              <NavItem title="Transactions" link={Routes.Transactions.path} icon={faChartPie} />
+              <CollapsableNavItem eventKey="riders/" title="Riders" icon={faFileAlt}>
+                <NavItem title=" Riders"  link={Routes.ViewRiders.path} />
+                <NavItem title="Add Rider"  link={Routes.AddRider.path} />
+              </CollapsableNavItem>
               {/* <NavItem title="Transactions" icon={faHandHoldingUsd} link={Routes.DashboardOverview.path} />
               <NavItem title="Settings" icon={faCog} link={Routes.DashboardOverview.path} /> */}
 
@@ -118,38 +121,8 @@ export default (props = {}) => {
                 <NavItem title="500 Server Error" link={Routes.ServerError.path} />
               </CollapsableNavItem>
               */}
-              <NavItem external title="Plugins" link="https://demo.themesberg.com/volt-pro-react/#/plugins/charts" target="_blank" badgeText="Pro" icon={faChartPie} />
-
               <Dropdown.Divider className="my-3 border-indigo" />
 
-              {/* <CollapsableNavItem eventKey="documentation/" title="Getting Started" icon={faBook}>
-                <NavItem title="Overview" link={Routes.DocsOverview.path} />
-                <NavItem title="Download" link={Routes.DocsDownload.path} />
-                <NavItem title="Quick Start" link={Routes.DocsQuickStart.path} />
-                <NavItem title="License" link={Routes.DocsLicense.path} />
-                <NavItem title="Folder Structure" link={Routes.DocsFolderStructure.path} />
-                <NavItem title="Build Tools" link={Routes.DocsBuild.path} />
-                <NavItem title="Changelog" link={Routes.DocsChangelog.path} />
-              </CollapsableNavItem>
-              <CollapsableNavItem eventKey="components/" title="Components" icon={faBoxOpen}>
-                <NavItem title="Accordion" link={Routes.Accordions.path} />
-                <NavItem title="Alerts" link={Routes.Alerts.path} />
-                <NavItem title="Badges" link={Routes.Badges.path} />
-                <NavItem external title="Widgets" link="https://demo.themesberg.com/volt-pro-react/#/components/widgets" target="_blank" badgeText="Pro" />
-                <NavItem title="Breadcrumbs" link={Routes.Breadcrumbs.path} />
-                <NavItem title="Buttons" link={Routes.Buttons.path} />
-                <NavItem title="Forms" link={Routes.Forms.path} />
-                <NavItem title="Modals" link={Routes.Modals.path} />
-                <NavItem title="Navbars" link={Routes.Navbars.path} />
-                <NavItem title="Navs" link={Routes.Navs.path} />
-                <NavItem title="Pagination" link={Routes.Pagination.path} />
-                <NavItem title="Popovers" link={Routes.Popovers.path} />
-                <NavItem title="Progress" link={Routes.Progress.path} />
-                <NavItem title="Tables" link={Routes.Tables.path} />
-                <NavItem title="Tabs" link={Routes.Tabs.path} />
-                <NavItem title="Toasts" link={Routes.Toasts.path} />
-                <NavItem title="Tooltips" link={Routes.Tooltips.path} />
-              </CollapsableNavItem>  */}
               <NavItem external title="Themesberg" link="https://themesberg.com" target="_blank" image={ThemesbergLogo} />
 
             </Nav>
