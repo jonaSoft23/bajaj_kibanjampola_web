@@ -11,6 +11,7 @@ export const Routes ={
 
     //Pages
     ViewRiders: {path: "/riders/view-riders"},
+    Individual:{path:"/riders/view-riders/:id"},
     AddRider: {path: "/riders/add-rider"},
     Transactions: {path: "/transactions"},
 

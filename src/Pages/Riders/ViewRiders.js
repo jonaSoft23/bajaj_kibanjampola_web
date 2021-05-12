@@ -5,6 +5,7 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 import {  Card, Col, Row, Form, Button, ButtonGroup, Breadcrumb, InputGroup, Dropdown,  Pagination, Nav } from '@themesberg/react-bootstrap';
 import ViewRiders_QUERY from "Queries/Riders"
 import Query from "Components/Query"
+import {Link } from "react-router-dom"
 
 const ViewRiders = () => {
     return(
@@ -72,6 +73,11 @@ const ViewRiders = () => {
                                                     <span className="fw-normal">
                                                         {riders.amount_paid}
                                                     </span>
+                                                </td>
+                                                <td  key={riders.id}>
+                                                    <Link
+                                                    to={`/riders/view-riders/${riders.id}`}
+                                                    >Individual</Link>
                                                 </td>
                                             </tr>   
                                             );

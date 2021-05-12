@@ -18,7 +18,7 @@ import "react-datetime/css/react-datetime.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Router >
       <ApolloProvider client={client}>
             <App />
       </ApolloProvider>

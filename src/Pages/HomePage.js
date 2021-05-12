@@ -13,8 +13,9 @@ import NotFound from "Pages/Authorization/NotFound"
 import ServerError from "Pages/Authorization/ServerError";
 import ViewRiders from "Pages/Riders/ViewRiders";
 import AddRider from "Pages/Riders/AddRider";
-import Transactions from "Pages/Transactions";
+import Transactions from "Pages/Transactions/Transactions";
 import Simple from "Pages/Simple";
+import Individual from "Pages/Individual"
 
 //components
 import Sidebar from "../Components/SideBar";
@@ -89,6 +90,7 @@ const HomePage = () => (
         <RouteWithSidebar exact path={Routes.ViewRiders.path} component={ViewRiders} />
         <RouteWithSidebar exact path={Routes.AddRider.path} component={AddRider} />
         <RouteWithSidebar exact path={Routes.Transactions.path} component={Transactions} />
+        <RouteWithSidebar exact path={Routes.Individual.path} component={Individual} />
 
         <Redirect to={Routes.NotFound.path} />
     </Switch>

@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 const ViewRiders_QUERY = gql`
   query Riders {
     riders{
+      id
       first_name
       last_name
       nin_number
@@ -10,6 +11,15 @@ const ViewRiders_QUERY = gql`
       amount_paid
     }
   }
+`;
+
+const SingleRider_Query = gql`
+    query Riders {
+      riders{
+        id
+      }
+    }
+
 `;
 
 export default ViewRiders_QUERY;
