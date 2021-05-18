@@ -1,8 +1,8 @@
 import React from "react";
-import { Image, Table } from '@themesberg/react-bootstrap';
+// import {  Table } from '@themesberg/react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
-import {  Card, Col, Row, Form, Button, ButtonGroup, Breadcrumb, InputGroup, Dropdown,  Pagination, Nav } from '@themesberg/react-bootstrap';
+import { faHome, faEdit, faTrashAlt, faEye, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
+import {  Card, Col, Row, Form, Button, ButtonGroup, Breadcrumb, Pagination, Nav , Dropdown,Table} from '@themesberg/react-bootstrap';
 import ViewRiders_QUERY from "Queries/Riders"
 import Query from "Components/Query"
 import {Link } from "react-router-dom"
@@ -35,49 +35,66 @@ const ViewRiders = () => {
                         {
                             return(
                                 <Table hover className="user-table align-items-center">
-                                    <thead>
+                                    <thead >
                                         <tr>
                                             <th className="border-bottom">NiN Number</th>
                                             <th className="border-bottom">First Name</th>
                                             <th className="border-bottom">Last Name</th>
                                             <th className="border-bottom">Amount Owed</th>
                                             <th className="border-bottom">Amount Paid</th>
+                                            <th className="border-bottom">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {riders.map((riders,i) =>{
                                             return (
-                                            <tr>
-                                                <td key={riders.id}> 
+                                            <tr key={riders}>
+                                                <td key={riders.nin_number}> 
                                                     <span className="fw-normal">
                                                         {riders.nin_number}
                                                     </span>
                                                 </td>
                                                 
-                                                <td key={riders.id}>
+                                                <td key={riders.first_name}>
                                                     <span className="fw-normal"> 
                                                         {riders.first_name}
                                                     </span>
                                                 </td>
-                                                <td key={riders.id}>
+                                                <td key={riders.last_name}>
                                                     <span className="fw-normal"> 
                                                         {riders.last_name}
                                                     </span>
                                                 </td>
-                                                <td key={riders.id}> 
+                                                <td key={riders.balance}> 
                                                     <span className="fw-normal">
-                                                        {riders.amount_owed}
+                                                        {riders.balance}
                                                     </span>
                                                 </td>
-                                                <td key={riders.id}>
+                                                <td key={riders.amount}>
                                                     <span className="fw-normal">
                                                         {riders.amount_paid}
                                                     </span>
                                                 </td>
                                                 <td  key={riders.id}>
-                                                    <Link
-                                                    to={`/riders/view-riders/${riders.id}`}
-                                                    >Individual</Link>
+                                                <Dropdown as={ButtonGroup}>
+                                                    <Dropdown.Toggle as={Button} split variant="link" className="text-dark m-0 p-0">
+                                                    <span className="icon icon-sm">
+                                                        <FontAwesomeIcon icon={faEllipsisH} className="icon-dark" />
+                                                    </span>
+                                                    </Dropdown.Toggle>
+                                                    <Dropdown.Menu>
+                                                        <Dropdown.Item>
+                                                            <FontAwesomeIcon icon={faEye} className="me-2" />  
+                                                            <Link to={`/riders/view-riders/${riders.id}`}>View Details</Link>
+                                                        </Dropdown.Item>
+                                                        <Dropdown.Item>
+                                                            <FontAwesomeIcon icon={faEdit} className="me-2" /> Edit
+                                                        </Dropdown.Item>
+                                                        <Dropdown.Item className="text-danger">
+                                                            <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Remove
+                                                        </Dropdown.Item>
+                                                    </Dropdown.Menu>
+                                                </Dropdown>
                                                 </td>
                                             </tr>   
                                             );
@@ -108,7 +125,7 @@ const ViewRiders = () => {
                     <small className="fw-bold">
                         Showing <b>3</b> out of <b>25</b> entries
                     </small>
-                    </Card.Footer>
+                </Card.Footer>
                 </ Card.Body>   
            </Card>
         </>    

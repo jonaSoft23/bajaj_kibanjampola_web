@@ -1,9 +1,8 @@
 import gql from "graphql-tag";
 
-const ViewRiders_QUERY = gql`
-  query Riders {
-    riders{
-      id
+const SingleRider_QUERY = gql`
+query SingleRider($Id:ID!) {
+    rider(id:$Id){
       first_name
       last_name
       nin_number
@@ -13,4 +12,4 @@ const ViewRiders_QUERY = gql`
   }
 `;
 
-export default ViewRiders_QUERY;
+export default SingleRider_QUERY;

@@ -4,7 +4,7 @@ import SimpleBar from 'simplebar-react';
 import { useLocation } from "react-router-dom";
 import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faBoxOpen, faChartPie, faCog, faFileAlt, faHandHoldingUsd, faSignOutAlt, faTable, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {  faChartPie, faUser, faFileAlt, faHandHoldingUsd, faSignOutAlt, faTable, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { Nav, Badge, Image, Button, Dropdown, Accordion, Navbar } from '@themesberg/react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -97,30 +97,14 @@ export default (props = {}) => {
               </Nav.Link>
             </div>
             <Nav className="flex-column pt-3 pt-md-0">
-              <NavItem title="Volt React" link={Routes.DashboardOverview.path} image={ReactHero} />
+              <NavItem title="Bajaj Kibanjampola " link={Routes.DashboardOverview.path} image={ReactHero} />
               <NavItem title="Overview" link={Routes.DashboardOverview.path} icon={faChartPie} />
-              <NavItem title="Transactions" link={Routes.Transactions.path} icon={faChartPie} />
-              <CollapsableNavItem eventKey="riders/" title="Riders" icon={faFileAlt}>
+              <CollapsableNavItem eventKey="riders/" title="Riders" icon={faUser}>
                 <NavItem title=" Riders"  link={Routes.ViewRiders.path} />
                 <NavItem title="Add Rider"  link={Routes.AddRider.path} />
               </CollapsableNavItem>
-              {/* <NavItem title="Transactions" icon={faHandHoldingUsd} link={Routes.DashboardOverview.path} />
-              <NavItem title="Settings" icon={faCog} link={Routes.DashboardOverview.path} /> */}
+              <NavItem title="Transactions" link={Routes.Transactions.path} icon={faHandHoldingUsd} />
 
-              {/* <CollapsableNavItem eventKey="tables/" title="Tables" icon={faTable}>
-                <NavItem title="Bootstrap Table" link={Routes.BootstrapTables.path} />
-              </CollapsableNavItem>
-
-              <CollapsableNavItem eventKey="examples/" title="Page Examples" icon={faFileAlt}>
-                <NavItem title="Sign In" link={Routes.Signin.path} />
-                <NavItem title="Sign Up" link={Routes.Signup.path} />
-                <NavItem title="Forgot password" link={Routes.ForgotPassword.path} />
-                <NavItem title="Reset password" link={Routes.ResetPassword.path} />
-                <NavItem title="Lock" link={Routes.Lock.path} />
-                <NavItem title="404 Not Found" link={Routes.NotFound.path} />
-                <NavItem title="500 Server Error" link={Routes.ServerError.path} />
-              </CollapsableNavItem>
-              */}
               <Dropdown.Divider className="my-3 border-indigo" />
 
               <NavItem external title="Themesberg" link="https://themesberg.com" target="_blank" image={ThemesbergLogo} />
