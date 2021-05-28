@@ -88,7 +88,8 @@ const ViewRiders = () => {
                                                             <Link to={`/riders/view-riders/${riders.id}`}>View Details</Link>
                                                         </Dropdown.Item>
                                                         <Dropdown.Item>
-                                                            <FontAwesomeIcon icon={faEdit} className="me-2" /> Edit
+                                                            <FontAwesomeIcon icon={faEdit} className="me-2" /> 
+                                                            <Link to={`/riders/last-transaction/${riders.id}`}>Edit</Link>
                                                         </Dropdown.Item>
                                                         <Dropdown.Item className="text-danger">
                                                             <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Remove

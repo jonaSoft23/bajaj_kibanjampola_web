@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 const ViewTransactions_QUERY = gql`
 query Transactions {
     transactions {
+      id
       amount
       date
       rider {
@@ -15,3 +16,4 @@ query Transactions {
 `;
 
 export default ViewTransactions_QUERY;
+

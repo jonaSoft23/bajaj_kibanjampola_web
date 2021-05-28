@@ -14,6 +14,7 @@ export const Routes ={
     Individual:{path:"/riders/view-riders/:id"},
     AddRider: {path: "/riders/add-rider"},
     Transactions: {path: "/transactions"},
+    LastTransaction:{path:"/riders/last-transaction/:id"},
 
     //Error Pages
     NotFound: { path: "/Pages/Authorization/NotFound" },

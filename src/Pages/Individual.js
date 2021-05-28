@@ -1,11 +1,11 @@
 
-import{React }from "react";
+import{React, useState }from "react";
 import { useParams,useHistory  } from "react-router";
 
 import { useMutation, useQuery} from "@apollo/react-hooks";
 import AddRiderTransaction from "Mutations/AddRiderTransaction";
 import SingleRider_QUERY from "Queries/SingleRider";
-
+import LastTransaction from "Components/LastTransaction"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUserPlus, faChartLine, faCashRegister} from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Button, ButtonGroup, Breadcrumb,  Form, Card} from '@themesberg/react-bootstrap';
@@ -38,6 +38,10 @@ const Individual = () => {
     let CurrentAmount;
     let FirstName;
     let LastName;
+    let Days;
+    let ImageUrl;
+
+    Days = LastTransaction(id);
 
     const {loading, error, data} = useQuery(SingleRider_QUERY,{
         variables:{Id:id}
@@ -47,11 +51,25 @@ const Individual = () => {
         CurrentAmount = data.rider.amount_paid;
         FirstName = data.rider.first_name;
         LastName = data.rider.last_name;
+        // ImageUrl = data.rider.profile_image.url;   
         
+         ImageUrl =
+        process.env.NODE_ENV !== "development"
+          ? data.rider.profile_image.url
+          : process.env.REACT_APP_BACKEND_URL + data.rider.profile_image.url;
+
+
+
+        // setCurrentBalance(data.rider.balance);
+        console.log(JSON.stringify(data, null, 2));
         }
         if (error) {
         console.log('error: ', error)
         }
+
+        let CurrentBalanceStr 
+        //  CurrentBalance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        //  console.log(CurrentBalanceStr);
 
     const formik = useFormik({
 
@@ -75,7 +93,14 @@ const Individual = () => {
         number = parseInt(text);
         return(number)
       }
-   
+      
+    const makeString = (text) =>{
+        var CommaString;
+        CommaString = text.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return(CommaString)
+    }  
+
+
     const Amount = makeInt(formik.values.amount);
     const Date = formik.values.date;
     const Rider = id;
@@ -89,8 +114,7 @@ const Individual = () => {
         console.log('error: ', error)
       }
 
-    let CurrentBalanceStr =  CurrentBalance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    console.log(CurrentBalanceStr);
+
     return(
     <>
 
@@ -99,8 +123,8 @@ const Individual = () => {
                     <Breadcrumb className="d-none d-md-inline-block" listProps={{ className: "breadcrumb-dark breadcrumb-transparent" }}>
                         <Breadcrumb.Item><FontAwesomeIcon icon={faHome} /></Breadcrumb.Item>
                         <Breadcrumb.Item>Bajaj Kibanjampola</Breadcrumb.Item>
-                        <Breadcrumb.Item active>Riders</Breadcrumb.Item>
-                        <Breadcrumb.Item >{FirstName + "  " + LastName}</Breadcrumb.Item>
+                        <Breadcrumb.Item >Riders</Breadcrumb.Item>
+                        <Breadcrumb.Item active >{FirstName + "  " + LastName}</Breadcrumb.Item>
                     </Breadcrumb>
                     <h4>{FirstName + "  " + LastName}</h4>
                     <p className="mb-0">View individual's  rider details here.</p>
@@ -117,8 +141,9 @@ const Individual = () => {
             <Row className="justify-content-md-center">
                     <Col xs={12} sm={6}  className="mb-4">
                         <CounterWidget
-                            category="Balance(Ugx)"
-                            title={CurrentBalanceStr}
+                            category="Balance (Ugx)"
+                            title= {CurrentBalance}
+                            //   {CurrentBalanceStr ? CurrentBalanceStr :"Not loaded yet" }
                             period="Feb 1 - Apr 1"
                             icon={faChartLine}
                             iconColor="shape-secondary"
@@ -127,8 +152,8 @@ const Individual = () => {
 
                         <Col xs={12} sm={6}  className="mb-4">
                         <CounterWidget
-                            category="Revenue"
-                            title="$43,594"
+                            category="Days since last Transaction"
+                            title={Days}
                             period="Feb 1 - Apr 1"
                             percentage={28.4}
                             icon={faCashRegister}
@@ -191,7 +216,7 @@ const Individual = () => {
                         <Card border="light" className="text-center p-0 mb-4">
                         <div style={{ backgroundImage: `url(${ProfileCover})` }} className="profile-cover rounded-top" />
                             <Card.Body className="pb-5">
-                                <Card.Img src={Profile1} alt="Neil Portrait" className="user-avatar large-avatar rounded-circle mx-auto mt-n7 mb-4" />
+                                <Card.Img src={ImageUrl} alt="Neil Portrait" className="user-avatar large-avatar rounded-circle mx-auto mt-n7 mb-4" />
                                 <Card.Title>{FirstName + "  " + LastName}</Card.Title>
                                 <Card.Subtitle className="fw-normal">Rider</Card.Subtitle>
                                 <Card.Text className="text-gray mb-4">New York, USA</Card.Text>

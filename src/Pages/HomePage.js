@@ -25,6 +25,7 @@ import Preloader from "../Components/Preloader";
 
 import  {Routes}  from "../Routing/Routes"
 
+
 const RouteWithLoader = ({ component: Component, ...rest }) => {
     const [loaded, setLoaded] = useState(false);
   
@@ -91,6 +92,7 @@ const HomePage = () => (
         <RouteWithSidebar exact path={Routes.AddRider.path} component={AddRider} />
         <RouteWithSidebar exact path={Routes.Transactions.path} component={Transactions} />
         <RouteWithSidebar exact path={Routes.Individual.path} component={Individual} />
+        
 
         <Redirect to={Routes.NotFound.path} />
     </Switch>

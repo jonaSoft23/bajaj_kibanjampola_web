@@ -8,6 +8,9 @@ query SingleRider($Id:ID!) {
       nin_number
       balance
       amount_paid
+      profile_image{
+        url
+      }
     }
   }
 `;
