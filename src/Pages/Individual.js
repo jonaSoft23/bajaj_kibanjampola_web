@@ -53,11 +53,16 @@ const Individual = () => {
         LastName = data.rider.last_name;
         // ImageUrl = data.rider.profile_image.url;   
         
-         ImageUrl =
-        process.env.NODE_ENV !== "development"
-          ? data.rider.profile_image.url
-          : process.env.REACT_APP_BACKEND_URL + data.rider.profile_image.url;
-
+        try{
+            ImageUrl =
+                process.env.NODE_ENV !== "development"
+                ? data.rider.profile_image.url
+                : process.env.REACT_APP_BACKEND_URL + data.rider.profile_image.url;
+         
+        }
+        catch(err){
+            console.log("no profile image")
+        }
 
 
         // setCurrentBalance(data.rider.balance);
@@ -216,7 +221,8 @@ const Individual = () => {
                         <Card border="light" className="text-center p-0 mb-4">
                         <div style={{ backgroundImage: `url(${ProfileCover})` }} className="profile-cover rounded-top" />
                             <Card.Body className="pb-5">
-                                <Card.Img src={ImageUrl} alt="Neil Portrait" className="user-avatar large-avatar rounded-circle mx-auto mt-n7 mb-4" />
+                                <Card.Img src={ImageUrl ? ImageUrl : Profile1}
+                                 alt="Neil Portrait" className="user-avatar large-avatar rounded-circle mx-auto mt-n7 mb-4" />
                                 <Card.Title>{FirstName + "  " + LastName}</Card.Title>
                                 <Card.Subtitle className="fw-normal">Rider</Card.Subtitle>
                                 <Card.Text className="text-gray mb-4">New York, USA</Card.Text>
