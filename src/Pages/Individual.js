@@ -1,5 +1,5 @@
 
-import{React, useState }from "react";
+import{React }from "react";
 import { useParams,useHistory  } from "react-router";
 
 import { useMutation, useQuery} from "@apollo/react-hooks";
@@ -7,7 +7,7 @@ import AddRiderTransaction from "Mutations/AddRiderTransaction";
 import SingleRider_QUERY from "Queries/SingleRider";
 import LastTransaction from "Components/LastTransaction"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUserPlus, faChartLine, faCashRegister} from '@fortawesome/free-solid-svg-icons';
+import { faHome, faChartLine, faCashRegister} from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Button, ButtonGroup, Breadcrumb,  Form, Card} from '@themesberg/react-bootstrap';
 
 

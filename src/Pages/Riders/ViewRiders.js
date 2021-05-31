@@ -2,7 +2,7 @@ import React from "react";
 // import {  Table } from '@themesberg/react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faEdit, faTrashAlt, faEye, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
-import {  Card, Col, Row, Form, Button, ButtonGroup, Breadcrumb, Pagination, Nav , Dropdown,Table} from '@themesberg/react-bootstrap';
+import {  Card, Button, ButtonGroup, Breadcrumb, Pagination, Nav , Dropdown,Table} from '@themesberg/react-bootstrap';
 import ViewRiders_QUERY from "Queries/Riders"
 import Query from "Components/Query"
 import {Link } from "react-router-dom"
@@ -89,7 +89,7 @@ const ViewRiders = () => {
                                                         </Dropdown.Item>
                                                         <Dropdown.Item>
                                                             <FontAwesomeIcon icon={faEdit} className="me-2" /> 
-                                                            <Link to={`/riders/last-transaction/${riders.id}`}>Edit</Link>
+                                                            Edit
                                                         </Dropdown.Item>
                                                         <Dropdown.Item className="text-danger">
                                                             <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Remove

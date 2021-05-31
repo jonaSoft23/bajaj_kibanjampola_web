@@ -1,15 +1,4 @@
 import React, {useReducer} from "react";
-import { useMutation } from "@apollo/react-hooks";
-
-import AddRiderMutation from "Mutations/AddRider"
-
-import moment from "moment-timezone";
-import Datetime from "react-datetime";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt, faBoxOpen, faCartArrowDown, faChartPie, faChevronDown, faClipboard, faCommentDots, faFileAlt, faPlus, faRocket, faStore} from '@fortawesome/free-solid-svg-icons';
-import { Col, Row, Button, Dropdown , Form, Card} from '@themesberg/react-bootstrap';
-
-import { useFormik } from "formik";
 import * as Yup from "yup";
 
 const validate = Yup.object({

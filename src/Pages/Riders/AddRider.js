@@ -5,11 +5,9 @@ import { useHistory  } from "react-router";
 
 import AddRiderMutation from "Mutations/AddRider"
 
-import moment from "moment-timezone";
-import Datetime from "react-datetime";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBoxOpen, faCommentDots, faFileAlt, faPlus, faRocket, faHome} from '@fortawesome/free-solid-svg-icons';
-import { Col, Row, Button, Dropdown , Form, Card, ButtonGroup, Breadcrumb} from '@themesberg/react-bootstrap';
+import { faHome} from '@fortawesome/free-solid-svg-icons';
+import { Col, Row, Button,  Form, Card, ButtonGroup, Breadcrumb} from '@themesberg/react-bootstrap';
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
