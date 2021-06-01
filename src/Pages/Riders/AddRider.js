@@ -201,7 +201,7 @@ const AddRider = () => {
                   <Form.Group id="Initial Charge" >
                     <Form.Label>Initial Charge</Form.Label>
                       <Form.Control 
-                      required type="number" 
+                      required 
                       name="initial_charge" 
                       type="text"
                       placeholder="Initial Charge"   
@@ -217,7 +217,6 @@ const AddRider = () => {
                       <Form.Label>Initial Deposit</Form.Label>
                       <Form.Control 
                       required 
-                      type="number" 
                       name="initial_deposit" 
                       type="text"
                       placeholder="input initial amount" 

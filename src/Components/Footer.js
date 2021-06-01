@@ -53,7 +53,7 @@ export default (props) => {
             <p className="mb-0 text-center text-xl-left">
               Copyright © 2019-{`${currentYear} `}
               <Card.Link  target="_blank" className="text-blue text-decoration-none fw-normal">
-                Bajaj-Kibanjampola
+                Bajaj Kibanjampola
             </Card.Link>
             </p>
           </Col>
@@ -61,7 +61,7 @@ export default (props) => {
             <ul className="list-inline list-group-flush list-group-borderless text-center text-xl-right mb-0">
               <li className="list-inline-item px-0 px-sm-2">
                 <Card.Link  target="_blank">
-                  Home
+                <Link to={`/`}> Home</Link>
               </Card.Link>
               </li>
               <li className="list-inline-item px-0 px-sm-2">
@@ -71,7 +71,7 @@ export default (props) => {
               </li>
               <li className="list-inline-item px-0 px-sm-2">
                 <Card.Link  target="_blank">
-                  Transactions
+                <Link to={`/transactions`}>Transactions</Link>
               </Card.Link>
               </li>
               <li className="list-inline-item px-0 px-sm-2">

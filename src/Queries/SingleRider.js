@@ -8,6 +8,7 @@ query SingleRider($Id:ID!) {
       nin_number
       balance
       amount_paid
+      initial_charge
       profile_image{
         url
       }

@@ -1,8 +1,7 @@
-import { useParams } from "react-router";
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faEdit, faTrashAlt, faEye, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
-import {  Card, Col, Row, Form, Button, ButtonGroup, Breadcrumb, Pagination, Nav , Dropdown,Table} from '@themesberg/react-bootstrap';
+import { faHome, } from '@fortawesome/free-solid-svg-icons';
+import {  Card,  Button, ButtonGroup, Breadcrumb, Pagination, Nav , Table} from '@themesberg/react-bootstrap';
 
 import ViewTransactions_QUERY from "Queries/Transactions"
 import Query from "Components/Query"
@@ -96,7 +95,7 @@ const Transactions = () => {
                         </Pagination>
                     </Nav>
                     <small className="fw-bold">
-                        Showing <b>3</b> out of <b>25</b> entries
+                        Showing <b>10</b> out of <b>10</b> entries
                     </small>
                 </Card.Footer>
                 </ Card.Body>   

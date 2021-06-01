@@ -13,9 +13,9 @@ import ServerError from "Pages/Authorization/ServerError";
 import ViewRiders from "Pages/Riders/ViewRiders";
 import AddRider from "Pages/Riders/AddRider";
 import Transactions from "Pages/Transactions/Transactions";
-import Simple from "Pages/Simple";
 import Individual from "Pages/Individual"
-
+import Simple from "Pages/Simple";
+import Settings from "Pages/Settings";
 //components
 import Sidebar from "../Components/SideBar";
 import Navbar from "../Components/Navbar";
@@ -91,7 +91,7 @@ const HomePage = () => (
         <RouteWithSidebar exact path={Routes.AddRider.path} component={AddRider} />
         <RouteWithSidebar exact path={Routes.Transactions.path} component={Transactions} />
         <RouteWithSidebar exact path={Routes.Individual.path} component={Individual} />
-        
+        <RouteWithSidebar exact path={Routes.Settings.path} component={Settings} />
 
         <Redirect to={Routes.NotFound.path} />
     </Switch>

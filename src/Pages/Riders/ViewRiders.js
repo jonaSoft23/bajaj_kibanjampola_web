@@ -116,15 +116,13 @@ const ViewRiders = () => {
                         <Pagination.Item active>1</Pagination.Item>
                         <Pagination.Item>2</Pagination.Item>
                         <Pagination.Item>3</Pagination.Item>
-                        <Pagination.Item>4</Pagination.Item>
-                        <Pagination.Item>5</Pagination.Item>
                         <Pagination.Next>
                             Next
                         </Pagination.Next>
                         </Pagination>
                     </Nav>
                     <small className="fw-bold">
-                        Showing <b>3</b> out of <b>25</b> entries
+                        Showing <b>5</b> out of <b>5</b> entries
                     </small>
                 </Card.Footer>
                 </ Card.Body>   

@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useParams } from "react-router";
+
 import { useQuery} from "@apollo/react-hooks";
 import moment from 'moment'
 import ViewLastTransaction_Query from "Queries/ViewLastTransaction";

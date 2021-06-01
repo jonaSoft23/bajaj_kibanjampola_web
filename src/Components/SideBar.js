@@ -4,7 +4,7 @@ import SimpleBar from 'simplebar-react';
 import { useLocation } from "react-router-dom";
 import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  faChartPie, faUser, faFileAlt, faHandHoldingUsd, faSignOutAlt, faTable, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {  faChartPie, faUser, faFileAlt, faHandHoldingUsd, faSignOutAlt, faTimes, faCog } from "@fortawesome/free-solid-svg-icons";
 import { Nav, Badge, Image, Button, Dropdown, Accordion, Navbar } from '@themesberg/react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -86,7 +86,7 @@ export default (props = {}) => {
                   <Image src={ProfilePicture} className="card-img-top rounded-circle border-white" />
                 </div>
                 <div className="d-block">
-                  <h6>Hi, Jane</h6>
+                  <h6>Hi, Admin</h6>
                   <Button as={Link} variant="secondary" size="xs" to={Routes.Signin.path} className="text-dark">
                     <FontAwesomeIcon icon={faSignOutAlt} className="me-2" /> Sign Out
                   </Button>
@@ -97,17 +97,21 @@ export default (props = {}) => {
               </Nav.Link>
             </div>
             <Nav className="flex-column pt-3 pt-md-0">
-              <NavItem title="Bajaj Kibanjampola " link={Routes.DashboardOverview.path} image={ReactHero} />
+              <NavItem title="Bajaj Kibanjampola "  image={ReactHero} />
+              <Dropdown.Divider className="my-3 border-indigo" />
               <NavItem title="Overview" link={Routes.DashboardOverview.path} icon={faChartPie} />
               <CollapsableNavItem eventKey="riders/" title="Riders" icon={faUser}>
                 <NavItem title=" Riders"  link={Routes.ViewRiders.path} />
                 <NavItem title="Add Rider"  link={Routes.AddRider.path} />
               </CollapsableNavItem>
               <NavItem title="Transactions" link={Routes.Transactions.path} icon={faHandHoldingUsd} />
-
+              <CollapsableNavItem eventKey="reports/" title="Reports" icon={faFileAlt}>
+                {/* <NavItem title=" Monthly"  link={Routes.MonthlyReport.path} />
+                <NavItem title="Annually"  link={Routes.AnnualReport.path} /> */}
+              </CollapsableNavItem>
               <Dropdown.Divider className="my-3 border-indigo" />
-
-              {/* <NavItem external title="Themesberg" link="https://themesberg.com" target="_blank" image={ThemesbergLogo} /> */}
+              <NavItem title="Settings" icon={faCog} link={Routes.Settings.path} />
+              
 
             </Nav>
           </div>

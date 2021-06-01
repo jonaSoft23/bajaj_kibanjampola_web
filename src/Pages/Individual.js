@@ -9,17 +9,13 @@ import LastTransaction from "Components/LastTransaction"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faChartLine, faCashRegister} from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Button, ButtonGroup, Breadcrumb,  Form, Card} from '@themesberg/react-bootstrap';
-
-
-// Handle Form
+import Progress from "Components/Progress";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-
 import { ChoosePhotoWidget, CounterWidget } from "../Components/Widgets";
-
 import Profile3 from "../assets/img/team/profile-picture-3.jpg";
-import Profile1 from "../assets/img/team/profile-picture-1.jpg";
 import ProfileCover from "../assets/img/profile-cover.jpg";
+import UserIcon from "../assets/img/user.jpg";
 
 const validate = Yup.object({
     amount: Yup.string()
@@ -34,8 +30,10 @@ const Individual = () => {
 
     let { id } = useParams();
     const history = useHistory();
+    let PaidPercentage = 0;
     let CurrentBalance;
     let CurrentAmount;
+    let Total_Charge;
     let FirstName;
     let LastName;
     let Days;
@@ -51,14 +49,11 @@ const Individual = () => {
         CurrentAmount = data.rider.amount_paid;
         FirstName = data.rider.first_name;
         LastName = data.rider.last_name;
-        // ImageUrl = data.rider.profile_image.url;   
-        
+        Total_Charge = data.rider.initial_charge;
+
         try{
-            ImageUrl =
-                process.env.NODE_ENV !== "development"
-                ? data.rider.profile_image.url
-                : process.env.REACT_APP_BACKEND_URL + data.rider.profile_image.url;
-         
+            ImageUrl = process.env.REACT_APP_BACKEND_URL + data.rider.profile_image.url;
+            console.log(ImageUrl)
         }
         catch(err){
             console.log("no profile image")
@@ -72,9 +67,20 @@ const Individual = () => {
         console.log('error: ', error)
         }
 
-        let CurrentBalanceStr 
-        //  CurrentBalance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        //  console.log(CurrentBalanceStr);
+    const CalculatePaidPercentage = (paid, owed) =>{
+        let Percentage;
+        Percentage = (paid / owed)* 100;
+        return (Math.round(Percentage));
+    }
+
+    try{
+
+        PaidPercentage = CalculatePaidPercentage(CurrentAmount,Total_Charge);
+        console.log(PaidPercentage);
+    }
+    catch(err){
+        console.log("no value received");
+    }
 
     const formik = useFormik({
 
@@ -115,6 +121,7 @@ const Individual = () => {
     const [createTransaction] = useMutation( AddRiderTransaction,{
         variables:{Amount, Date, Rider, NewAmount, NewBalance}
     })
+
     if (error) {
         console.log('error: ', error)
       }
@@ -141,31 +148,44 @@ const Individual = () => {
                     </ButtonGroup>
                 </div>
         </div>
+        {/* breadcrumb ends */}
+
         <Row>
             <Col xs={12} xl={8}>
-            <Row className="justify-content-md-center">
-                    <Col xs={12} sm={6}  className="mb-4">
-                        <CounterWidget
-                            category="Balance (Ugx)"
-                            title= {CurrentBalance}
-                            //   {CurrentBalanceStr ? CurrentBalanceStr :"Not loaded yet" }
-                            period="Feb 1 - Apr 1"
-                            icon={faChartLine}
-                            iconColor="shape-secondary"
-                        />
+                <Row className="justify-content-md-center">
+                        <Col xs={12} sm={6}  className="mb-4">
+                            <CounterWidget
+                                category="Balance (Ugx)"
+                                title= {CurrentBalance}
+                                //   {CurrentBalanceStr ? CurrentBalanceStr :"Not loaded yet" }
+                                period="Feb 1 - Apr 1"
+                                icon={faChartLine}
+                                iconColor="shape-secondary"
+                            />
                         </Col>
 
                         <Col xs={12} sm={6}  className="mb-4">
-                        <CounterWidget
-                            category="Days since last Transaction"
-                            title={Days}
-                            period="Feb 1 - Apr 1"
-                            percentage={28.4}
-                            icon={faCashRegister}
-                            iconColor="shape-tertiary"
-                        />
+                            <CounterWidget
+                                category="Days since last Transaction"
+                                title={Days}
+                                period="Feb 1 - Apr 1"
+                                percentage={28.4}
+                                icon={faCashRegister}
+                                iconColor="shape-tertiary"
+                            />
+                        </Col>
+                </Row> 
+
+                <Row>
+                    <Col xs={12}>
+                        <Card border="light" className="bg-white shadow-sm mb-4">
+                            <Card.Body>
+                                <Progress variant="secondary" label="Payement Progress" value={PaidPercentage} />
+                            </Card.Body>                            
+                        </Card>
                     </Col>
-                </Row>   
+                </Row>  
+
                 <Row>
                     <Col xs={12}>
                         <Card border="light" className="bg-white shadow-sm mb-4">              
@@ -221,11 +241,11 @@ const Individual = () => {
                         <Card border="light" className="text-center p-0 mb-4">
                         <div style={{ backgroundImage: `url(${ProfileCover})` }} className="profile-cover rounded-top" />
                             <Card.Body className="pb-5">
-                                <Card.Img src={ImageUrl ? ImageUrl : Profile1}
+                                <Card.Img src={ImageUrl ? ImageUrl : UserIcon}
                                  alt="Neil Portrait" className="user-avatar large-avatar rounded-circle mx-auto mt-n7 mb-4" />
                                 <Card.Title>{FirstName + "  " + LastName}</Card.Title>
                                 <Card.Subtitle className="fw-normal">Rider</Card.Subtitle>
-                                <Card.Text className="text-gray mb-4">New York, USA</Card.Text>
+                                <Card.Text className="text-gray mb-4">Kamapla, Uganda</Card.Text>
                             </Card.Body>
                             </Card>
                     </Col>
