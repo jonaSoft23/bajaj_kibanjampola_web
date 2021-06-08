@@ -5,7 +5,7 @@ import { faAngleDown, faAngleUp, faArrowDown, faArrowUp, faEdit, faEllipsisH, fa
 import { Col, Row, Nav, Card, Image, Button, Table, Dropdown, ProgressBar, Pagination, ButtonGroup } from '@themesberg/react-bootstrap';
 import { Link } from 'react-router-dom';
 
-import { Routes } from "../routes";
+import { Routes } from "../Routing/Routes";
 import { pageVisits, pageTraffic, pageRanking } from "../data/tables";
 import transactions from "../data/transactions";
 import commands from "../data/commands";
@@ -48,7 +48,7 @@ export const PageVisitsTable = () => {
       <Card.Header>
         <Row className="align-items-center">
           <Col>
-            <h5>Page visits</h5>
+            <h5>Latest Transactions</h5>
           </Col>
           <Col className="text-end">
             <Button variant="secondary" size="sm">See all</Button>

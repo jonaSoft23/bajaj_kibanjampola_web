@@ -3,20 +3,25 @@
 // import {Routes} from "Routing/Routes"
 // import { Form } from '@themesberg/react-bootstrap';
 
-import { useFormik } from "formik";
-import * as Yup from "yup";
+// import { useFormik } from "formik";
+// import * as Yup from "yup";
 
-const validate = Yup.object({
-    favoriteFood: Yup.string()
-        .required("required"),
-    favoritePlace: Yup.string()
-    .required("required"),   
-})
+// const validate = Yup.object({
+//     favoriteFood: Yup.string()
+//         .required("required"),
+//     favoritePlace: Yup.string()
+//     .required("required"),   
+// })
+
+import Alternative from "Components/Alternative"
+
 
 const Simple = () => {
 
-
-
+ return(
+  <Alternative />
+ );
+ 
     //   const {
     //     handleSubmit,
     //     handleChange,
@@ -36,52 +41,52 @@ const Simple = () => {
     //     },
     //   });
 
-      const formik = useFormik({
+      // const formik = useFormik({
 
-        initialValues: {
-          favoriteFood: "",
-          favoritePlace: "",
+      //   initialValues: {
+      //     favoriteFood: "",
+      //     favoritePlace: "",
    
-        },
+      //   },
    
-        validationSchema : validate,
+      //   validationSchema : validate,
    
-        onSubmit: values => {
+      //   onSubmit: values => {
    
-          alert(JSON.stringify(values, null, 2));
+      //     alert(JSON.stringify(values, null, 2));
    
-        },
+      //   },
    
-      });
+      // });
 
-    return(
-        <form onSubmit={formik.handleSubmit}>
-            <label htmlFor="favoriteFood">Favorite Food:</label>
-            <input
-            type="text"
-            name="favoriteFood"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            />
-            {formik.touched.favoriteFood && formik.errors.favoriteFood
-            ? <div>{formik.errors.favoritePlace}</div>
-            : null}
+    // return(
+    //     <form onSubmit={formik.handleSubmit}>
+    //         <label htmlFor="favoriteFood">Favorite Food:</label>
+    //         <input
+    //         type="text"
+    //         name="favoriteFood"
+    //         onChange={formik.handleChange}
+    //         onBlur={formik.handleBlur}
+    //         />
+    //         {formik.touched.favoriteFood && formik.errors.favoriteFood
+    //         ? <div>{formik.errors.favoritePlace}</div>
+    //         : null}
     
-            <label htmlFor="favoritePlace">Favorite place:</label>
-            <input
-            type="text"
-            name="favoritePlace"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            />
+    //         <label htmlFor="favoritePlace">Favorite place:</label>
+    //         <input
+    //         type="text"
+    //         name="favoritePlace"
+    //         onChange={formik.handleChange}
+    //         onBlur={formik.handleBlur}
+    //         />
     
-            {formik.touched.favoritePlace && formik.errors.favoritePlace
-            ? <div>{formik.errors.favoritePlace}</div>
-            : null}
+    //         {formik.touched.favoritePlace && formik.errors.favoritePlace
+    //         ? <div>{formik.errors.favoritePlace}</div>
+    //         : null}
     
-            <button type="submit">submit</button>
-      </form>    
-    );
+    //         <button type="submit">submit</button>
+    //   </form>    
+    // );
     
 };
 

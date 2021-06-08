@@ -39,6 +39,12 @@ const Individual = () => {
     let Days;
     let ImageUrl;
 
+    const makeString = (text) =>{
+        var CommaString;
+        CommaString = text.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return(CommaString)
+    }  
+
     Days = LastTransaction(id);
 
     const {loading, error, data} = useQuery(SingleRider_QUERY,{
@@ -50,7 +56,7 @@ const Individual = () => {
         FirstName = data.rider.first_name;
         LastName = data.rider.last_name;
         Total_Charge = data.rider.initial_charge;
-
+        CurrentBalance = makeString(CurrentBalance);    
         try{
             ImageUrl = process.env.REACT_APP_BACKEND_URL + data.rider.profile_image.url;
             console.log(ImageUrl)
@@ -105,12 +111,6 @@ const Individual = () => {
         return(number)
       }
       
-    const makeString = (text) =>{
-        var CommaString;
-        CommaString = text.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        return(CommaString)
-    }  
-
 
     const Amount = makeInt(formik.values.amount);
     const Date = formik.values.date;

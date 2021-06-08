@@ -7,6 +7,8 @@ import { Row, Col, Nav, Form, Image, Navbar, Dropdown, Container, ListGroup, Inp
 
 import NOTIFICATIONS_DATA from "../data/notifications";
 import Profile3 from "../assets/img/team/profile-picture-3.jpg";
+import Query from "Components/Query"
+import GetNotification_QUERY  from "Queries/Notification"
 
 
 export default (props) => {
@@ -77,7 +79,37 @@ export default (props) => {
                     Notifications
                   </Nav.Link>
 
-                  {notifications.map(n => <Notification key={`notification-${n.id}`} {...n} />)}
+                  {/* {notifications.map(n => <Notification key={`notification-${n.id}`} {...n} />)} */}
+                <Query query={GetNotification_QUERY} id={null}>
+                  {({ data: { notifications }}) =>
+                    {
+                      return(
+                        <>
+                          {notifications.map((notifications,i) =>{
+                                return(
+                                <ListGroup.Item action href={"#"} className="border-bottom border-light">
+                                        <Row className="align-items-center">
+                                            <Col className="col-auto">
+                                                <Image src={Profile3} className="user-avatar lg-avatar rounded-circle" />
+                                            </Col>
+                                            <Col className="ps-0 ms--2">
+                                                <div className="d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <h4 className="h6 mb-0 text-small">{notifications.rider.first_name}</h4>
+                                                    </div>
+                                                </div>
+                                                <p className="font-small mt-1 mb-0">{notifications.Message}</p>
+                                            </Col>
+                                        </Row>
+                                </ListGroup.Item>
+                                );
+                                })
+                          }
+                        </>
+                      );  
+                    }   
+                  }    
+              </Query>
 
                   <Dropdown.Item className="text-center text-primary fw-bold py-3">
                     View all
