@@ -123,13 +123,13 @@ if (data){
                   <PageVisitsTable />
                   </Col>
 
-                  <Col xs={12} lg={6} className="mb-4">
+                  <Col xs={12} lg={12} className="mb-4">
                     <TeamMembersWidget />
                   </Col>
-
+{/* 
                   <Col xs={12} lg={6} className="mb-4">
                     <ProgressTrackWidget />
-                  </Col>
+                  </Col> */}
                 </Row>
               </Col>
 

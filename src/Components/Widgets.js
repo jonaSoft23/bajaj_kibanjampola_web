@@ -198,7 +198,7 @@ export const TeamMembersWidget = () => {
   return (
     <Card border="light" className="shadow-sm">
       <Card.Header className="border-bottom border-light d-flex justify-content-between">
-        <h5 className="mb-0">Team members</h5>
+        <h5 className="mb-0">Riders</h5>
         <Button variant="secondary" size="sm">See all</Button>
       </Card.Header>
       <Card.Body>

@@ -12,6 +12,7 @@ import  {Routes}  from "../Routing/Routes"
 import ThemesbergLogo from "../assets/img/themesberg.svg";
 import ReactHero from "../assets/img/technologies/react-hero-logo.svg";
 import ProfilePicture from "../assets/img/team/profile-picture-3.jpg";
+import BajajLogo from "../assets/img/technologies/bajaj_logo.svg";
 
 export default (props = {}) => {
   const location = useLocation();
@@ -71,7 +72,7 @@ export default (props = {}) => {
     <>
       <Navbar expand={false} collapseOnSelect variant="dark" className="navbar-theme-primary px-4 d-md-none">
         <Navbar.Brand className="me-lg-5" as={Link} to={Routes.DashboardOverview.path}> 
-          <Image src={ReactHero} className="navbar-brand-light" />
+          <Image src={BajajLogo} className="navbar-brand-light" />
         </Navbar.Brand>
         <Navbar.Toggle as={Button} aria-controls="main-navbar" onClick={onCollapse}>
           <span className="navbar-toggler-icon" />
@@ -97,7 +98,7 @@ export default (props = {}) => {
               </Nav.Link>
             </div>
             <Nav className="flex-column pt-3 pt-md-0">
-              <NavItem title="Bajaj Kibanjampola "  image={ReactHero} />
+              <NavItem title="Bajaj Kibanjampola "  image={BajajLogo} />
               <Dropdown.Divider className="my-3 border-indigo" />
               <NavItem title="Overview" link={Routes.DashboardOverview.path} icon={faChartPie} />
               <CollapsableNavItem eventKey="riders/" title="Riders" icon={faUser}>
